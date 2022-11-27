@@ -28,8 +28,17 @@ public class PrimeFinderImplTest /*extends PrimeFinderTest*/ {
     void findFirstTenPrimeNumbers() {
         List<Integer> result = tested.find(10);
         //List expected was copied from Wiki
-        List<Integer> expected = List.of(2, 3, 5, 7, 11, 13, 17, 19, 23, 29);
+        List<Integer> expected = List.of(1, 2, 3, 5, 7, 11, 13, 17, 19, 23);
         assertEquals(result, expected, "Prime numbers are incorrect");
+    }
+
+    @Test
+    void findOnePrimeNumber() {
+        List<Integer> result = tested.find(1);
+        //List expected was copied from Wiki
+        List<Integer> expected = List.of(1);
+        System.out.println(result);
+        assertEquals(result, expected, "Prime number is incorrect");
     }
 
     @Test
@@ -56,7 +65,7 @@ public class PrimeFinderImplTest /*extends PrimeFinderTest*/ {
         } catch (IllegalArgumentException ex) {
             isExceptionDetected = true;
         }
-        Assert.assertTrue(isExceptionDetected);
+        Assert.assertTrue(isExceptionDetected, "Parameter count must not be zero.");
     }
    /* @Override
     PrimeFinder createImpl() {

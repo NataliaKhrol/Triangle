@@ -1,10 +1,9 @@
 package mine.prime;
 
-import mine.prime.PrimeFinder;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
-import org.testng.internal.junit.ArrayAsserts;
+
+import static org.testng.Assert.assertThrows;
+import static org.testng.Assert.assertTrue;
 
 public abstract class PrimeFinderTest {
 
@@ -16,16 +15,21 @@ public abstract class PrimeFinderTest {
     }
 
     @Test()
+    public void negativeNumber2() {
+        tested.find(0);
+        assertThrows(IllegalArgumentException.class, () -> tested.find(0));
+    }
+
+    @Test()
     public void barbarianNegativeNumbers() {
-         boolean isExceptionDetected = false;
+        boolean isExceptionDetected = false;
         try {
             tested.find(0);
         } catch (IllegalArgumentException ex) {
             isExceptionDetected = true;
         }
-        Assert.assertTrue(isExceptionDetected);
+        assertTrue(isExceptionDetected);
     }
-
 
     abstract PrimeFinder createImpl();
 }
