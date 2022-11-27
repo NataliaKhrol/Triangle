@@ -2,7 +2,7 @@ package mine.prime;
 
 import java.util.ArrayList;
 
-public class PrimeFinderImpl implements PrimeFinder {
+public class PrimeFinderImplFast implements PrimeFinder {
     private ArrayList<Integer> primes;
 
     public ArrayList<Integer> find(int count) {
@@ -11,8 +11,12 @@ public class PrimeFinderImpl implements PrimeFinder {
         }
         primes = new ArrayList<>();
         primes.add(1);
+        if (count == 1) {
+            return primes;
+        }
+        primes.add(2);
 
-        for (int i = 2; primes.size() < count; i++) {
+        for (int i = 3; primes.size() < count; i+=2) {
             if (isPrime(i)) {
                 primes.add(i);
             }
@@ -21,8 +25,8 @@ public class PrimeFinderImpl implements PrimeFinder {
     }
 
     private boolean isPrime(int num) {
-        for (int j = 2; j < num; j++) {
-            if (num % j == 0) {
+        for (int i = 2; i < primes.size(); i++) {
+            if (num % primes.get(i) == 0) {
                 return false;
             }
         }

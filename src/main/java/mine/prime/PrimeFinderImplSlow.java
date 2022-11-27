@@ -2,7 +2,7 @@ package mine.prime;
 
 import java.util.ArrayList;
 
-public class PrimeFinderImplAdv implements PrimeFinder {
+public class PrimeFinderImplSlow implements PrimeFinder {
     private ArrayList<Integer> primes;
 
     public ArrayList<Integer> find(int count) {
