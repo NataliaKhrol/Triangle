@@ -1,7 +1,7 @@
 import java.util.Arrays;
 // Fibanacci till 100;
 
-public class Fabinacci {
+public class Fibanacci {
     public static void main(String[] args) {
         long[] fabi = new long[101];
         fabi[0] = 1;

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+// найти все простые числа до 1000
 public class SimpleImproved {
     public static void main(String[] args) {
         ArrayList<Integer> simple = new ArrayList<Integer>();
